@@ -2,6 +2,12 @@
 
 This project provides a set of scripts to transcribe audio files using AWS Transcribe and extract the conversation into a Markdown file. It includes shell scripts for managing transcription jobs and a Python script for processing the transcription output.
 
+## Workflow
+
+
+![AWS Transcribe Workflow](aws-transcribe.svg)
+
+
 ## Prerequisites
 
 - **AWS CLI**: Ensure you have the AWS CLI installed and configured with your credentials.
