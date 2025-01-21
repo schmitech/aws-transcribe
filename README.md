@@ -39,7 +39,7 @@ This project provides a set of scripts to transcribe audio files using AWS Trans
 Run the `start_transcription.sh` script to start a transcription job for your audio file. Provide the path to the audio file and the S3 bucket name as arguments.
 
 ```bash
-./start_transcription.sh path/to/audio.wav your-s3-bucket-name
+./start_transcription.sh path/to/audio.wav input-s3-bucket-name
 ```
 
 ### Step 2: Check Transcription Job Status
@@ -74,4 +74,4 @@ The conversation will be saved in a file named `podcast_conversation.md`, format
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache 2.0 License. See the [LICENSE](LICENSE) file for details.
