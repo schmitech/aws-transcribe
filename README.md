@@ -9,31 +9,37 @@ This project provides a set of scripts to transcribe audio files using AWS Trans
 - **Virtual Environment**: Use a virtual environment to manage dependencies.
 - **AWS Account**: You need an AWS account with permissions to use AWS Transcribe and S3.
 
-## Project Structure
-
-aws-transcribe-project/
-│
-├── start_transcription.sh
-├── check_status.sh
-├── retrieve_transcription.sh
-├── extract_conversation.py
-└── README.md
-
-
 ## Setup
 
 1. **Configure AWS CLI**: Run `aws configure` to set up your AWS credentials and default region.
 
-2. **Edit Scripts**: Update the shell scripts with your specific S3 bucket names, file names, and AWS profile.
+2. **Create and Activate Virtual Environment**:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
+
+3. **Install Required Packages**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Edit `.env` File**: Copy `.env` to `.env` file with your specific AWS profile, transcription job name, output bucket name, and language code, example:
+   ```plaintext
+   AWS_PROFILE=MY_AWS_SSO_PROFILE
+   TRANSCRIPTION_JOB_NAME=transcription-job
+   OUTPUT_BUCKET=transcribe-output-bucket
+   LANGUAGE_CODE=en-US
+   ```
 
 ## Usage
 
 ### Step 1: Start Transcription Job
 
-Run the `start_transcription.sh` script to start a transcription job for your audio file.
+Run the `start_transcription.sh` script to start a transcription job for your audio file. Provide the path to the audio file and the S3 bucket name as arguments.
 
 ```bash
-./start_transcription.sh
+./start_transcription.sh path/to/audio.wav your-s3-bucket-name
 ```
 
 ### Step 2: Check Transcription Job Status
@@ -44,20 +50,13 @@ Run the `check_status.sh` script to check the status of your transcription job.
 ./check_status.sh
 ```
 
-### Step 3: Retrieve Transcription Result
+### Step 3: Retrieve and Process Transcription Result
 
-Once the transcription job is completed, run the `retrieve_transcription.sh` script to download the transcription result.
+Once the transcription job is completed, run the `retrieve_transcription.sh` script to download the transcription result, process it, and clean up the S3 bucket.
 
-
-### Step 4: Extract Conversation
-
-Use the `extract_conversation.py` script to extract the conversation from the JSON file and save it as a Markdown file.
-
-
-### Step 4: Extract Conversation
-
-Use the `extract_conversation.py` script to extract the conversation from the JSON file and save it as a Markdown file.
-
+```bash
+./retrieve_transcription.sh
+```
 
 ## Output
 
