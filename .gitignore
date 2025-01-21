@@ -118,7 +118,6 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-# Output files
-*.md 
 *.json
+podcast_conversation.md
 .env
